@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <style media="screen">
+  section{
+    width:5%;
+    height:60px;
+    margin: 100px 0 0 45%;
+  }
+    body{
+      text-align: center;
+      background-image: url(penny.gif);
+      background-position: bottom;
+      background-size: cover;
+    }
+    input{
+      margin: 100px 0 0 0 0;
+      height:30px;
+      width:15%;
+    }
+    button{
+      font-size: 25px;
+      border-color: rgb(62, 38, 30);
+      font-weight: 600;
+      background-color: rgb(227, 165, 137);
+      color: rgb(62, 38, 30);
+      margin: 100px 0 0 0;
+      height:60px;
+      width:60px;
+      border-radius: 50%
+    }
+    p{
+      font-size:40px;
+      font-weight: 600;
+    }
+    span{
+      font-size:40px;
+      color:green;
+      font-weight: 600;
+    }
+    .points{
+      color:black;
+      margin: 0 0 0 20px;
+    }
+    img{
+      margin: 0 0 0 43%;
+      display: block;
+    }
+  </style>
+  <title></title>
+</head>
+<body>
+
+  <input id="inputVal" type="text" name="" placeholder="Heads or Tails?">
+  <button type="button" name="button">Flip!</button>
+  <p class="output">Coin</p>
+  <span class="didYouWin"></span><span class="points"></span>
+  <img src="" alt="">
+
+  <script type="text/javascript">
+    var para=document.getElementsByClassName('output')[0]
+    var points=0;
+    document.querySelector("button").addEventListener("click", function(){
+      var inputValue = document.getElementById('inputVal').value.toLowerCase()
+      let RandomFlip=Math.random()
+      if(RandomFlip<=.5){
+        para.innerHTML="heads"
+        document.querySelectorAll("img")[0].src="heads.png"
+      }
+      else{
+        para.innerHTML="tails"
+        document.querySelectorAll("img")[0].src="tails.png"
+      }
+      if(inputValue==para.innerHTML){
+        points+=10;
+        console.log(inputValue);
+        console.log(para.innerHTML);
+        document.getElementsByClassName('points')[0].innerHTML=points
+        document.getElementsByClassName('didYouWin')[0].innerHTML="You Win"
+        document.getElementsByClassName('didYouWin')[0].style.color= "green "
+      }
+      else {
+        points-=10;
+        document.getElementsByClassName('points')[0].innerHTML=points
+        document.getElementsByClassName('didYouWin')[0].innerHTML="You lose"
+        document.getElementsByClassName('didYouWin')[0].style.color= "red"
+      }
+    })
+  </script>
+
+</body>
+</html>
